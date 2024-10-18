@@ -1,7 +1,7 @@
 pipeline{
     agent {
         node {
-            label "docker && jkd17"
+            label "docker && jdk17"
         }
     }
     
