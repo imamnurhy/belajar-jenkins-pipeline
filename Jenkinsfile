@@ -8,6 +8,11 @@ pipeline{
 
     stages {
         stage('Prepare') {
+
+            environment {
+                APP = credential('imamkey');
+            }
+
             agent {
                 node {
                     label "docker && jdk17"
@@ -19,6 +24,8 @@ pipeline{
                 echo("Start Job ${env.JOB_NAME}")
                 echo("Start Build ${env.BUILD_NUMBER}")
                 echo("Brannch Name ${env.BRANCH_NAME}")
+                echo("App Username ${APP_USR}")
+                echo("App Password ${APP_PSW}")
            }
         }
         stage('Build') {
