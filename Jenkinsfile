@@ -10,7 +10,7 @@ pipeline{
         stage('Prepare') {
 
             environment {
-                APP = credential('imamkey');
+                APP = credentials("imamkey");
             }
 
             agent {
