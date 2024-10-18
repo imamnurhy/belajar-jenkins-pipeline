@@ -1,12 +1,12 @@
 pipeline{
-    agent {
-        node {
-            label "docker && jdk17"
-        }
-    }
-    
+   agent none
     stages {
         stage('Build') {
+            agent {
+                node {
+                    label "docker && jdk17"
+                }
+            }
            steps {
                 echo("Start Build")
                 sh("./mvnw clean compile test-compile")
@@ -14,6 +14,11 @@ pipeline{
            }
         }
         stage('Test') {
+            agent {
+                node {
+                    label "docker && jdk17"
+                }
+            }
            steps {
                 echo("Start Test")
                 sh("./mvnw test")
@@ -21,6 +26,11 @@ pipeline{
            }
         }
         stage('Deploy') {
+            agent {
+                node {
+                    label "docker && jdk17"
+                }
+            }
            steps {
                 echo("Hello Deploy 1")
                 echo("Hello Deploy 2")
