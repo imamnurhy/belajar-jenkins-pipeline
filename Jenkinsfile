@@ -6,6 +6,10 @@ pipeline{
         EMAIL = "imamnurhy@gmail.com"
     }
 
+    triggers {
+        cron("*/1 * * * *")
+    }
+
     stages {
         stage('Prepare') {
 
